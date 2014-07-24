@@ -1,10 +1,10 @@
 all: cache-test analyse-file
 
-cache-test: cache-test.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o
-	g++ cache-test.o jfuncs.o rabin.o polynomial.o CacheTable.o CacheController.o PacketGrabber.o util.o -o cache-test -Wall -lpcap
+cache-test: cache-test.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o Stats.o EntryStats.o
+	g++ cache-test.o jfuncs.o rabin.o polynomial.o CacheTable.o CacheController.o PacketGrabber.o util.o Stats.o EntryStats.o -o cache-test -Wall -lpcap
 
-analyse-file: analyse-file.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o 
-	g++ analyse-file.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o -o analyse-file -Wall -lpcap
+analyse-file: analyse-file.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o Stats.o EntryStats.o
+	g++ analyse-file.o CacheTable.o CacheController.o jfuncs.o rabin.o polynomial.o PacketGrabber.o util.o Stats.o EntryStats.o -o analyse-file -Wall -lpcap
 #analyse-file: analyse-file.o CacheTable.o CacheController.o jfuncs.o runningxor.o polynomial.o PacketGrabber.o util.o 
 #	g++ analyse-file.o CacheTable.o CacheController.o jfuncs.o runningxor.o polynomial.o PacketGrabber.o util.o -o analyse-file -Wall -lpcap
 
@@ -13,6 +13,12 @@ cache-test.o: cache-test.cpp
 
 analyse-file.o:	analyse-file.cpp
 	g++ -c -g analyse-file.cpp -Wall
+
+EntryStats.o: Stats.cc EntryStats.cc
+	g++ -c -g EntryStats.cc -Wall
+
+Stats.o: Stats.cc
+	g++ -c -g Stats.cc -Wall
 
 util.o: util.cpp
 	g++ -c -g util.cpp -Wall

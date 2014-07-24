@@ -14,6 +14,7 @@
 #include <sys/time.h>
 //#include "runningxor.h" // simple fingerprinter
 #include "rabin.h"	  // better fingerprinter
+#include "EntryStats.h"
 
 // typedef for brevity
 typedef unsigned int uint;
@@ -26,13 +27,8 @@ struct CacheEntry {
 	int fPlen;		// length of fingerprint
 	unsigned long offset;	// offset in payload where fingerprint begins
 	char payload[1600];	// payload of packet
-	uint accessCount;	// number of times packet has been accessed
-	uint missCount;		// number of times packet was accessed but erroneously
-	uint hitCount;		// number of times packet was accessed and it was good
 	long expiryTime;	// time when packet can be removed from cache
-
-	unsigned long long cumulativeGap;	// extra variable
-	unsigned long long bytesSaved;		// number of bytes this entry has saved
+	EntryStats *stats;	// Statistic gatherer
 };
 
 /**

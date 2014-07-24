@@ -96,7 +96,7 @@ CacheEntry CacheTable::getEntry(uint* fP, int len) {
 		// update hit information
 		// TODO: more accurately update this stuff
 		entry->lastHit = tp;
-		entry->accessCount++;
+		entry->stats->Add_Stat(EntryStats::ACCESS, 1);
 	}
 	return *entry;
 }
@@ -129,7 +129,7 @@ int CacheTable::matchAt(uint* fP, int fPlen, char payload[1600], int offset) {
 				break;
 			}
 		}
-		entry.bytesSaved += lastMatch+1 - offset;
+		entry.stats->Add_Stat(EntryStats::BYTES_SAVED, lastMatch+1 - offset);
 	}	
 
 	// If there was a sufficiently big match and we're logging
@@ -272,8 +272,8 @@ void CacheTable::writeEntryToLog(CacheEntry entry, char* filename) {
 		if(i != entry.fPlen-1)
 			*logger << " ";
 	}
-	*logger << "," << entry.offset << "," << "," << entry.accessCount << "," << entry.missCount << "," <<\
-	entry.hitCount << "," << entry.expiryTime << "," << entry.bytesSaved << "," << strlen(entry.payload) << "," << entry.payload << "\n";
+	*logger << "," << entry.offset << "," << "," << entry.stats->Get_Stat(EntryStats::ACCESS) << "," << entry.stats->Get_Stat(EntryStats::MISS) << "," <<\
+	entry.stats->Get_Stat(EntryStats::HIT) << "," << entry.expiryTime << "," << entry.stats->Get_Stat(EntryStats::BYTES_SAVED) << "," << strlen(entry.payload) << "," << entry.payload << "\n";
 	if(filename != NULL)
 		delete logger;
 }
@@ -354,13 +354,14 @@ void CacheTable::loadEntries(char* filename) {
 			fPlen,		// length of fingerprint
 			offset,		// offset in payload where fingerprint begins
 			"",		// payload of packet
-			accessCount,	// number of times packet has been accessed
-			missCount,	// number of times packet was accessed but erroneously
-			hitCount,	// number of times packet was accessed and it was good
-			expiryTime,	// time when packet can be removed from cache
-			0,		// extra variable
-			bytesSaved,	// number of bytes this entry has saved
+			expiryTime,	// long expiryTime
+			new EntryStats(), 
 		};
+		entry.stats->Set_Stat(EntryStats::ACCESS, accessCount);
+		entry.stats->Set_Stat(EntryStats::MISS, missCount);
+		entry.stats->Set_Stat(EntryStats::HIT, hitCount);
+		entry.stats->Set_Stat(EntryStats::BYTES_SAVED, bytesSaved);
+	
 		strncpy(entry.payload, payload, 1600);
 	}	
 }
@@ -386,12 +387,8 @@ CacheEntry makeEntry(uint* fP, int fPlen, char payload[1600], unsigned long offs
 		fPlen,	// int fPlen;
 		offset,	// unsigned long offset;
 		"",	// char payLoad[1600];
-		0,	// uint accessCount;
-		0,	// uint missCount;
-		0,	// uint hitCount;
 		expiry + tp.tv_sec,	// long expiryTime;
-		0,	// unsigned long long cumulativeGap;
-		0	// unsigned long long bytesSaved;
+		new EntryStats()
 	};
 
 	// copy the payload in

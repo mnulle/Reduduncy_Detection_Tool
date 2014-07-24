@@ -6,6 +6,7 @@
 #include "PacketGrabber.h"
 #include "CacheController.h"
 #include "util.h"
+#include "EntryStats.h"
 
 using namespace std;
 
@@ -37,14 +38,11 @@ int create_entry() {
 		1,	// int fPlen;
 		0,	// unsigned long offset;
 		"",	// char payLoad[1600];
-		0,	// uint accessCount;
-		0,	// uint missCount;
-		0,	// uint hitCount;
-		0,	// unsigned long long cumulativeGap;
-		0	// unsigned long long bytesSaved;
+		0,	// long expiryTime
+		new EntryStats(), 
 	};
 	free(fP);
-	return entry.bytesSaved;
+	return entry.expiryTime;
 }
 // Tests: Able to get the current time and add a CacheEntry to the cache using it
 int add_entry() {
@@ -57,14 +55,11 @@ int add_entry() {
 		tp,	// timeval timeCreated;
 		tp,	// timeval lastHit;
 		fP,	// uint *fP;
-		2,	// int fPlen;
+		1,	// int fPlen;
 		0,	// unsigned long offset;
 		"",	// char payLoad[1600];
-		0,	// uint accessCount;
-		0,	// uint missCount;
-		0,	// uint hitCount;
-		0,	// unsigned long long cumulativeGap;
-		0	// unsigned long long bytesSaved;
+		0,	// long expiryTime
+		new EntryStats(), 
 	};
 	CacheTable table;
 	table.addEntry(entry);
@@ -85,11 +80,8 @@ int add_and_retrieve() {
 		1,	// int fPlen;
 		0,	// unsigned long offset;
 		"",	// char payLoad[1600];
-		0,	// uint accessCount;
-		0,	// uint missCount;
-		0,	// uint hitCount;
-		0,	// unsigned long long cumulativeGap;
-		0	// unsigned long long bytesSaved;
+		0,	// long expiryTime
+		new EntryStats(), 
 	};
 	CacheTable table;
 	table.addEntry(entry);
