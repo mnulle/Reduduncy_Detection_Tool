@@ -1,0 +1,5 @@
+scapy
+a=Ether()/IP()/TCP()
+b=Raw(load=['a'*32+'b'*32, 'a'*16, 'b'*16])
+wrpcap("test3.cap", [p for p in a/b])
+
