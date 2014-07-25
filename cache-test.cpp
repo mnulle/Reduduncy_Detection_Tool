@@ -20,7 +20,7 @@ int basic_output() {
 int create_cache() {
 	CacheTable table;
 	cout << "Loading entries\n";
-	table.loadEntries("cache-final-state-log.txt");
+	table.loadEntries((char*)"cache-final-state-log.txt");
 	cout << "Done loading entries\n";
 	return 0;
 }

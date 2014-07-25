@@ -49,8 +49,8 @@ void	Stats::Add_Stat (int nStat, int nVal)
 {
 	if(nStat >= m_nSize || nStat < 0)
 	{
-		printf("* Warning: Illegal value for stats field in Add_Stat (%d, %f)\n", nStat, nVal);
-		printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+		printf("* Warning: Illegal value for stats field in Add_Stat (%d, %d)\n", nStat, nVal);
+		printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
 		return;
 	}
 
@@ -64,7 +64,7 @@ void	Stats::Get_Title	(int nStat, char * szTitle)
 	if(nStat >= m_nSize || nStat < 0)
 	{
 		printf("* Warning: Illegal value for stats field in Get_Stat (%d)\n", nStat);
-		printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+		printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
 		return;
 	}	
 	sprintf(szTitle, "F%04d", nStat);
@@ -77,7 +77,7 @@ int  Stats::Get_Stat (int nStat)
 	if(nStat >= m_nSize || nStat < 0)
 	{
 		printf("* Warning: Illegal value for stats field in Get_Stat (%d)\n", nStat);
-		printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+		printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
 		return -1;
 	}
 
@@ -87,8 +87,8 @@ int  Stats::Get_Stat (int nStat)
 void	Stats::Set_Stat (int nStat, int nVal)
 {
     if(nStat >= m_nSize || nStat < 0) {
-        printf("* Warning: Illegal value for stats field in Set_Stat (%d, %f)\n", nStat, nVal);
-        printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+        printf("* Warning: Illegal value for stats field in Set_Stat (%d, %d)\n", nStat, nVal);
+        printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
         return;
     }
 
@@ -100,7 +100,7 @@ void	Stats::Set_Stat_Type	(int nStat, char byType)
 	if(nStat >= m_nSize || nStat < 0)
 	{
 		printf("* Warning: Illegal value for stats field in Set_Stat_Type (%d, %d)\n", nStat, byType);
-		printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+		printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
 		return;
 	}
 
@@ -145,7 +145,7 @@ void Stats::writeGIPSE_XML (char * szFile) {
 
 void	Stats::Dump ()
 {
-    printf("Dumping Stats object at 0x%X\n", this);
+    printf("Dumping Stats object at %p\n", this);
   
     int		j, k;
     char	szString[100];    

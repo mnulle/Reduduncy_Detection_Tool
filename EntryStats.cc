@@ -38,7 +38,7 @@ void	EntryStats::Get_Title	(int nStat, char * szTitle)
 	if(nStat >= m_nSize || nStat < 0)
 	{
 		printf("* Warning: Illegal value for stats field in Get_Stat (%d)\n", nStat);
-		printf("			Max size = %d w/array at 0x%X\n", m_nSize, m_pnStats);
+		printf("			Max size = %d w/array at %p\n", m_nSize, m_pnStats);
 		return;
 	}
 	switch(nStat) {
