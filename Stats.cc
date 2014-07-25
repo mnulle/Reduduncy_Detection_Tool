@@ -113,7 +113,7 @@ void	Stats::Allocate (int nSize)
 {
 	int		j;
 
-	m_pnStats = new int [nSize];
+	m_pnStats = new double [nSize];
 	m_pbyType = new char   [nSize];
 	m_nSize = nSize;
 
@@ -136,7 +136,7 @@ void Stats::writeGIPSE_XML (char * szFile) {
 
     for(j=0; j<m_nSize; j++) {
         Get_Title(j, szTemp);		
-        sprintf(szOut, "        <dataPoint name = %c%s%c value = %c%d%c />", 34,szTemp,34,34,m_pnStats[j],34);
+        sprintf(szOut, "        <dataPoint name = %c%s%c value = %c%f%c />", 34,szTemp,34,34,m_pnStats[j],34);
         OutFile << szOut << endl;
     } 
 }
@@ -155,7 +155,7 @@ void	Stats::Dump ()
         for(k=j; k<j+2 && k<m_nSize; k++)
         {
           Get_Title(k, szString);
-          printf("%20s: %10d ", szString, m_pnStats[k]);
+          printf("%20s: %10f ", szString, m_pnStats[k]);
         }
 
         printf("\n");
@@ -184,7 +184,7 @@ void Stats::computeDiff (Stats * p1, Stats * p2)
 
 void Stats::GetValueString (int nStat, char * szValue)
 {
-	sprintf(szValue, "%d", m_pnStats[nStat]);
+	sprintf(szValue, "%f", m_pnStats[nStat]);
 }
 
 void Stats::logCSV_FieldNames   (ofstream & outStream)

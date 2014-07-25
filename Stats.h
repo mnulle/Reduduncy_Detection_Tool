@@ -147,7 +147,7 @@ class Stats
 		/** Each individual stat field that is simply a double precision floating
 		 * point field
 		 */
-		int		*		m_pnStats;
+		double		*		m_pnStats;
 		
 		/** The size of the stat array 
 		 */

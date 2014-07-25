@@ -9,10 +9,10 @@ using namespace std;
 using namespace std;
 
 #include "Stats.h"
-#include "EntryStats.h"
+#include "TableStats.h"
 
 
-EntryStats::EntryStats ()
+TableStats::TableStats ()
 {
 	m_nSize = 0;
 	m_fTime = 0.0;
@@ -33,7 +33,7 @@ EntryStats::EntryStats ()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-void	EntryStats::Get_Title	(int nStat, char * szTitle)
+void	TableStats::Get_Title	(int nStat, char * szTitle)
 {
 	if(nStat >= m_nSize || nStat < 0)
 	{
@@ -42,17 +42,17 @@ void	EntryStats::Get_Title	(int nStat, char * szTitle)
 		return;
 	}
 	switch(nStat) {
-	case ACCESS:
-		sprintf(szTitle, "Access_Count");
+	case UNUSED_GONE:
+		sprintf(szTitle, "Unused_Entries");
 		break;
-	case MISS:
-		sprintf(szTitle, "Miss_Count");
-		break;
-	case HIT:
-		sprintf(szTitle, "Hit_Count");
+	case TOTAL_HITS:
+		sprintf(szTitle, "Total_Hits");
 		break;
 	case BYTES_SAVED:
 		sprintf(szTitle, "Bytes_Saved");
+		break;
+	case BYTES_PROCESSED:
+		sprintf(szTitle, "Bytes_Processed");
 		break;
 	}
 
