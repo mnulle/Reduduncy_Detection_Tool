@@ -15,6 +15,7 @@
 //#include "runningxor.h" // simple fingerprinter
 #include "rabin.h"	  // better fingerprinter
 #include "EntryStats.h"
+#include "TableStats.h"
 
 // typedef for brevity
 typedef unsigned int uint;
@@ -79,8 +80,10 @@ public:
 	 * Add an entry to the cache, depending on availability of its spot
 	 * args: 
 	 *   CacheEntry toAdd: CacheEntry to add to the table
+	 * return:
+	 *   1 if it adds, 0 if there was something in the way
 	 */	
-	void addEntry(CacheEntry toAdd);
+	int addEntry(CacheEntry toAdd);
 
 	/**
 	 * Get the entry that's in the spot fP hashes to
@@ -175,6 +178,8 @@ public:
 	 */
 	void loadEntries(char* filename);
 
+	void addStat(int nStat, int value);
+
 private:
 	timeval splitTimeVal(std::string input);
 
@@ -182,6 +187,7 @@ private:
 	int numBuckets; // Number of available places for entries
 	uint expiryTime; // Length of time before entries can be removed
 	std::vector<CacheEntry> *entries; // vector of all buckets
+	TableStats stats;
 
 	std::ofstream logfile; // File for logging entries
 };

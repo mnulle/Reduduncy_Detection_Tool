@@ -23,8 +23,8 @@ Stats::Stats ()
 
 Stats::~Stats ()
 {
-    delete m_pnStats;
-    delete m_pbyType;
+    delete[] m_pnStats;
+    delete[] m_pbyType;
     m_nSize = 0;
 }
 

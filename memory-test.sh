@@ -7,6 +7,6 @@
 #--track-origins=yes will go much slower, but provide more details
 
 
-#valgrind --leak-check=yes ./cache-test -v
-valgrind --track-origins=yes --leak-check=yes ./cache-test -v
+valgrind --leak-check=yes ./cache-test -v
+#valgrind --track-origins=yes --leak-check=yes ./cache-test -v
 #valgrind --leak-check=yes ./analyse-file 120 pcaps/SimpleTest2.cap -v

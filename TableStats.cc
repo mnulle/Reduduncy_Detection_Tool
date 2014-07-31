@@ -12,7 +12,7 @@ using namespace std;
 #include "TableStats.h"
 
 
-TableStats::TableStats ()
+TableStats::TableStats ():Stats()
 {
 	m_nSize = 0;
 	m_fTime = 0.0;

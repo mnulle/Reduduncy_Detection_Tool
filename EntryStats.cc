@@ -12,7 +12,7 @@ using namespace std;
 #include "EntryStats.h"
 
 
-EntryStats::EntryStats ()
+EntryStats::EntryStats ():Stats()
 {
 	m_nSize = 0;
 	m_fTime = 0.0;

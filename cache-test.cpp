@@ -41,6 +41,7 @@ int create_entry() {
 		0,	// long expiryTime
 		new EntryStats(), 
 	};
+	delete entry.stats;
 	free(fP);
 	return entry.expiryTime;
 }

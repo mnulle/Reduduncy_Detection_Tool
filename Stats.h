@@ -49,7 +49,7 @@ class Stats
 {
 	public:
 		Stats  ();
-		~Stats ();
+		virtual ~Stats ();
 
 		/** Re-compute the various computation sensitive fields
 		 */

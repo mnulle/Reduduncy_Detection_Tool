@@ -33,6 +33,7 @@ CacheTable::~CacheTable() {
 	// free fingerprints in entries
 	for(uint i = 0; i < entries->size(); i++) {
 		free((*entries)[i].fP);
+		delete (*entries)[i].stats;
 	}
 	// get rid of the table
 	delete entries;
@@ -41,7 +42,7 @@ CacheTable::~CacheTable() {
 	}
 }
 
-void CacheTable::addEntry(CacheEntry toAdd) {
+int CacheTable::addEntry(CacheEntry toAdd) {
 	// get the current time
 	timeval tp;
 	gettimeofday(&tp, 0);
@@ -51,11 +52,18 @@ void CacheTable::addEntry(CacheEntry toAdd) {
 
 	// check if the bucket is available
 	if(entries->at(hash).expiryTime < tp.tv_sec) {
-		if(entries->at(hash).timeCreated.tv_sec != 0)
+		// if the entry has been populated
+		if(entries->at(hash).timeCreated.tv_sec != 0) {
+			if(entries->at(hash).stats->Get_Stat(EntryStats::HIT) == 0)
+				stats.Add_Stat(TableStats::UNUSED_GONE, 1);
 			writeEntryToLog(entries->at(hash));
+
+		}
 		// free the fingerprint there (kinda surprised this (and destructor)
 		// isn't causing problems with freeing unallocated memory)
 		free(entries->at(hash).fP);
+		delete entries->at(hash).stats;
+
 
 		// Old debugging prints, left just in case
 		/*printf("\n\n\n-----------------------------------\n%s\n\n%lu\n%.8s\n", entries->at(hash).payload, entries->at(hash).offset, entries->at(hash).payload+entries->at(hash).offset);
@@ -81,6 +89,12 @@ void CacheTable::addEntry(CacheEntry toAdd) {
 			sprintf(message, "add: %s...%lu...%s:%X ", payloadStart, toAdd.offset, payloadChunk, toAdd.fP[0]);
 			writeToLog(message, (char*)"TableAdd");
 		}
+		return 1;
+	}
+	else {
+		//free(toAdd.fP);
+		delete toAdd.stats;
+		return 0;
 	}
 }
 
@@ -94,8 +108,6 @@ CacheEntry CacheTable::getEntry(uint* fP, int len) {
 		timeval tp;
 		gettimeofday(&tp, 0);
 		// update hit information
-		// TODO: more accurately update this stuff
-		entry->lastHit = tp;
 		entry->stats->Add_Stat(EntryStats::ACCESS, 1);
 	}
 	return *entry;
@@ -105,6 +117,10 @@ void CacheTable::emptyCache() {
 	writeMessageToLog((char*)"Emptying cache. Current contents:\n<---Start Cache\n");
 	writeAllEntriesToLog(0);
 	writeMessageToLog((char*)"End Cache--->\n");
+	for(uint i = 0; i < entries->size(); i++) {
+		free((*entries)[i].fP);
+		delete (*entries)[i].stats;
+	}
 	entries->clear(); // clear out the cache
 	entries->resize(numBuckets); // refill it with empty entries
 }
@@ -130,7 +146,17 @@ int CacheTable::matchAt(uint* fP, int fPlen, char payload[1600], int offset) {
 			}
 		}
 		entry.stats->Add_Stat(EntryStats::BYTES_SAVED, lastMatch+1 - offset);
-	}	
+		stats.Add_Stat(TableStats::BYTES_SAVED, lastMatch+1 - offset);
+	}
+	if(lastMatch > -1) {
+		timeval tp;				// current time
+		gettimeofday(&tp, 0);
+		entry.lastHit = tp;
+		entry.stats->Add_Stat(EntryStats::HIT, 1);
+		stats.Add_Stat(TableStats::TOTAL_HITS, 1);
+	}
+	else if(entry.timeCreated.tv_sec != 0)
+		entry.stats->Add_Stat(EntryStats::MISS, 1);
 
 	// If there was a sufficiently big match and we're logging
 	if(DEBUG_LOG && lastMatch + 1 - offset > 16) {
@@ -184,13 +210,14 @@ void CacheTable::bootstrapWith(char payload[1600], Fingerprinter* fper) {
 
 	// make the first entry and add it
 	CacheEntry entry = makeEntry(fp, fper->getWCount(), payload, 0, expiryTime);
-	addEntry(entry);
+	int result = addEntry(entry);
 
 	// Walk through the packet and insert chunks into the table
 	for(int i = bootstrapJump; i <= (int)(len - window); i += bootstrapJump) {
 		// create a new fingerprint for the new entry
 		temp = (uint*)malloc(fper->getWCount()*sizeof(uint));
 		memcpy(temp, fp, fper->getWCount()*sizeof(uint));
+		if(result == 0) free(fp);
 		fp = temp;
 
 		// Now we can shift
@@ -205,8 +232,9 @@ void CacheTable::bootstrapWith(char payload[1600], Fingerprinter* fper) {
 
 		// make an entry out of the new fingerprint and add it		
 		entry = makeEntry(fp, fper->getWCount(), payload, i, expiryTime);
-		addEntry(entry);
+		result = addEntry(entry);
 	}
+	if(result == 0) free(fp);
 }
 
 int CacheTable::getNumEntries() {
@@ -363,6 +391,8 @@ void CacheTable::loadEntries(char* filename) {
 		entry.stats->Set_Stat(EntryStats::BYTES_SAVED, bytesSaved);
 	
 		strncpy(entry.payload, payload, 1600);
+
+		addEntry(entry);
 	}	
 }
 
@@ -372,6 +402,10 @@ timeval CacheTable::splitTimeVal(std::string input) {
 	std::string milli = input.substr(period+1);
 	timeval time = {atoi(seconds.c_str()), atoi(milli.c_str())};
 	return time;
+}
+
+void CacheTable::addStat(int nStat, int value) {
+	stats.Add_Stat(nStat, value);
 }
 
 CacheEntry makeEntry(uint* fP, int fPlen, char payload[1600], unsigned long offset, uint expiry) {

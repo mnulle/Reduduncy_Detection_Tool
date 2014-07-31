@@ -6,6 +6,7 @@
 
 #include "CacheController.h"
 #include "util.h"
+#include "TableStats.h"
 #include <stdio.h>
 
 CacheController::CacheController():
@@ -159,6 +160,7 @@ int CacheController::processPacket(char* payload, int count) {
 
 	}
 	bytesSavedTotal += bytesSaved; // add bytes saved from this packet to total
+	cache.addStat(TableStats::BYTES_PROCESSED, payloadlen);
 	return bytesSaved;
 }
 
