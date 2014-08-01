@@ -1,6 +1,7 @@
 #!/bin/bash
 # I was having issues where it would sometimes 'save' different amounts of bytes on different trials
 # so I wrote this script to run the same thing over and over again to find irregularities
+
 for f in {1..100} 
 do
 	# analyse the appropriate file

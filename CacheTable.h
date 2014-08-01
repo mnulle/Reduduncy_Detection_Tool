@@ -12,9 +12,10 @@
 #include <fstream>
 #include <iostream>
 #include <sys/time.h>
+
+#include "EntryStats.h"
 //#include "runningxor.h" // simple fingerprinter
 #include "rabin.h"	  // better fingerprinter
-#include "EntryStats.h"
 #include "TableStats.h"
 
 // typedef for brevity

@@ -1,12 +1,13 @@
 #include <iostream>
 #include <unistd.h>
-#include "CacheTable.h"
-#include "rabin.h"
-#include "polynomial.h"
-#include "PacketGrabber.h"
+
 #include "CacheController.h"
-#include "util.h"
+#include "CacheTable.h"
 #include "EntryStats.h"
+#include "PacketGrabber.h"
+#include "polynomial.h"
+#include "rabin.h"
+#include "util.h"
 
 using namespace std;
 
@@ -494,8 +495,8 @@ int controller_secondAll() {
 		printf("Did process           %d\n", packets);
 		return 1;
 	}
-	if(controller.getBytesSaved() != 218) {
-		printf("Should have saved 210 bytes\n");
+	if(controller.getBytesSaved() != 212) {
+		printf("Should have saved 212 bytes\n");
 		printf("Really saved      %d\n", controller.getBytesSaved());
 		return 2;
 	}

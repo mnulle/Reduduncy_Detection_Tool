@@ -8,9 +8,9 @@
 #define CACHE_CONTROLLER
 
 //#include "runningxor.h"
-#include "rabin.h"
 #include "CacheTable.h"
 #include "PacketGrabber.h"
+#include "rabin.h"
 
 // The CacheController class
 class CacheController {

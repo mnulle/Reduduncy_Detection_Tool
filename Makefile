@@ -50,7 +50,9 @@ CacheTable.o: CacheTable.cpp
 clean:
 	rm *.o cache-test analyse-file *~
 
-tidy:
+tidy: *.txt *.log
 	rm *.txt *.log
 
-scrub: clean tidy
+scrub: 
+	rm *.o cache-test analyse-file *~ *.txt *.log
+	
