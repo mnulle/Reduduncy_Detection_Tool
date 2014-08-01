@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/ScaleBox/!svn/ver/1/test/xml
+END
+testTimer-CBR.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ScaleBox/!svn/ver/1/test/xml/testTimer-CBR.xml
+END
+testCmd-Base.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ScaleBox/!svn/ver/1/test/xml/testCmd-Base.xml
+END
+testPktCache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ScaleBox/!svn/ver/1/test/xml/testPktCache.xml
+END

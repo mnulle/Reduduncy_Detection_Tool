@@ -1,0 +1,10 @@
+<ScaleBox>
+	<Command>
+		sleep-micro 1000
+		disp Passed sleep micro
+		sleep-milli	10
+		disp Passed sleep milli		
+		sleep			1
+		disp Passed sleep
+	</Command>
+</ScaleBox>

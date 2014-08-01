@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/ScaleBox/!svn/ver/40/src/fmnc
+END
+fmnc_client.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_client.h
+END
+fmnc_session.cc
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_session.cc
+END
+fmnc_connection_tcp_slice.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_connection_tcp_slice.cc
+END
+fmnc_session.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_session.h
+END
+fmnc_connection_tcp_slice.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_connection_tcp_slice.h
+END
+PunchOut.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ScaleBox/!svn/ver/26/src/fmnc/PunchOut.txt
+END
+fmnc_connection.cc
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_connection.cc
+END
+fmnc_connection.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_connection.h
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/ScaleBox/!svn/ver/7/src/fmnc/README
+END
+fmnc_test_sequence.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ScaleBox/!svn/ver/32/src/fmnc/fmnc_test_sequence.cc
+END
+fmnc_thread.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_thread.cc
+END
+fmnc_test_sequence.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ScaleBox/!svn/ver/31/src/fmnc/fmnc_test_sequence.h
+END
+fmnc_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_thread.h
+END
+fmnc_manager.cc
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_manager.cc
+END
+fmnc_support.cc
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_support.cc
+END
+fmnc_measurement_packet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_measurement_packet.cc
+END
+fmnc_manager.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ScaleBox/!svn/ver/31/src/fmnc/fmnc_manager.h
+END
+fmnc_support.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_support.h
+END
+fmnc_measurement_packet.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ScaleBox/!svn/ver/40/src/fmnc/fmnc_measurement_packet.h
+END
+fmnc_client.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/7/src/fmnc/fmnc_client.cc
+END

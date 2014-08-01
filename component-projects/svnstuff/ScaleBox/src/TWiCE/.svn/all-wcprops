@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/ScaleBox/!svn/ver/11/src/TWiCE
+END
+TWiCE_ClientInfo.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_ClientInfo.cc
+END
+TWiCE_CacheTable.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_CacheTable.cc
+END
+TWiCE_ClientInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_ClientInfo.h
+END
+TWiCE_Support.cc
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_Support.cc
+END
+List-Tasks.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/List-Tasks.txt
+END
+TWiCE_CacheTable.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_CacheTable.h
+END
+TWiCE_Support.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ScaleBox/!svn/ver/11/src/TWiCE/TWiCE_Support.h
+END
+TWiCE_Gateway.cc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ScaleBox/!svn/ver/11/src/TWiCE/TWiCE_Gateway.cc
+END
+TWiCE_PacketPool.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_PacketPool.cc
+END
+TWiCE_Gateway.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_Gateway.h
+END
+TWiCE_PacketPool.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ScaleBox/!svn/ver/1/src/TWiCE/TWiCE_PacketPool.h
+END

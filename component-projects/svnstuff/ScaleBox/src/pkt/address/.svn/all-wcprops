@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/ScaleBox/!svn/ver/8/src/pkt/address
+END
+NetAddressIPv4.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddressIPv4.h
+END
+NetAddressIPv4Subnet.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddressIPv4Subnet.h
+END
+NetAddressEthernet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddressEthernet.cc
+END
+NetAddress.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddress.cc
+END
+NetAddressEthernet.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddressEthernet.h
+END
+NetAddress.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddress.h
+END
+NetAddressIPv4.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ScaleBox/!svn/ver/1/src/pkt/address/NetAddressIPv4.cc
+END
+NetAddressIPv4Subnet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ScaleBox/!svn/ver/8/src/pkt/address/NetAddressIPv4Subnet.cc
+END

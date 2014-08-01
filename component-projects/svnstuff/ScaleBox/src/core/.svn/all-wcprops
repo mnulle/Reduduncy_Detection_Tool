@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/ScaleBox/!svn/ver/5/src/core
+END
+Console.cc
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ScaleBox/!svn/ver/5/src/core/Console.cc
+END
+LogEvent.cc
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ScaleBox/!svn/ver/1/src/core/LogEvent.cc
+END
+Timestamp.cc
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ScaleBox/!svn/ver/1/src/core/Timestamp.cc
+END
+Console.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ScaleBox/!svn/ver/1/src/core/Console.h
+END
+Main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/ScaleBox/!svn/ver/1/src/core/Main.cc
+END
+LogEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ScaleBox/!svn/ver/1/src/core/LogEvent.h
+END
+Timestamp.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/ScaleBox/!svn/ver/1/src/core/Timestamp.h
+END
+StdHeaders.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ScaleBox/!svn/ver/1/src/core/StdHeaders.h
+END

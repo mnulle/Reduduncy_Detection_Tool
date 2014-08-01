@@ -1,0 +1,34 @@
+<ScaleBox>
+	<Adapter type="pcap">
+		<name>en0</name>
+		<device>en0</device>
+		<!-- Start the input module chain -->
+		<InputModule type="InputLog">
+		</InputModule>
+		<InputModule type="InputPassthrough">
+			<targetName>en1</targetName>
+		</InputModule>
+		<!-- Start the output module chain -->
+		<OutputModule type="OutputLog">
+			<ConsoleID>OLen0</ConsoleID>
+		</OutputModule>
+		<OutputModule type="OutputPurge">
+		</OutputModule>
+	</Adapter>
+	<Adapter type="pcap">
+		<name>en1</name>
+		<device>en1</device>
+		<!-- Start the input module chain -->
+		<InputModule type="InputLog">
+		</InputModule>
+		<InputModule type="InputPassthrough">
+			<targetName>en0</targetName>
+		</InputModule>
+		<!-- Start the output module chain -->
+		<OutputModule type="OutputLog">
+			<ConsoleID>OLen1</ConsoleID>
+		</OutputModule>
+		<OutputModule type="OutputPurge">
+		</OutputModule>
+	</Adapter>
+</ScaleBox>

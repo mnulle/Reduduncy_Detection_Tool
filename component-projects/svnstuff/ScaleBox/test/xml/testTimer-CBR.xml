@@ -1,0 +1,9 @@
+<ScaleBox>
+	<Module type="TestTimer">
+		<name>ValidateTime</name>
+	</Module>
+	<Command>
+		sleep 1
+		cmd mod ValidateTime startCBR-1s		
+	</Command>
+</ScaleBox>

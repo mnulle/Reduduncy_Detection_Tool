@@ -1,0 +1,49 @@
+Punch Out List for FMNC
+
+High Priority Items
+
+
+Medium Priority Items
+
+* Track TCP options as requested by client
+
+* Timer for garbage collection
+
+Minor Items
+
+* First non-SYN-ACK has data from client
+
+* Change the IP IP when responding on the SYN-ACK to the client
+
+* Refresh TTL to a power of 2 when responding or pick a base / configurable one
+
+* Record TTL on the inbound SYN / SYN-ACK
+
+
+Major Demo Points
+
+* Telnet in - Get a bunch of data followed by the analyzed data
+
+* Command-line script (Perl or otherwise) to connect in
+
+* Netscale/fmnc -> Add the testing links
+
+* Web Get without shiny graphics - just the results - extra is commented out / dummy data
+
+* Web Get with Visualization
+
+* Output / saved data
+
+Upcoming Demo
+
+* Show off the web gets from the phone
+     iPhone
+       Comcast (Home)
+       Sprint
+       Verizon
+       ND (Work)
+       Starbucks (WiFi)
+       Martin's (WiFi)
+     Student / Android phones?
+     
+     Tight timeline to make this happen   

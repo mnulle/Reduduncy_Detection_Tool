@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/ScaleBox/!svn/ver/1/src/vhost/app
+END
+AppBase.cc
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ScaleBox/!svn/ver/1/src/vhost/app/AppBase.cc
+END
+AppBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/1/src/vhost/app/AppBase.h
+END
+AppCBR.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ScaleBox/!svn/ver/1/src/vhost/app/AppCBR.cc
+END
+AppCBR.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ScaleBox/!svn/ver/1/src/vhost/app/AppCBR.h
+END

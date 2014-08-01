@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/ScaleBox/!svn/ver/1/src/xml
+END
+NodeElem.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ScaleBox/!svn/ver/1/src/xml/NodeElem.h
+END
+FileXML.cc
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ScaleBox/!svn/ver/1/src/xml/FileXML.cc
+END
+FileXML.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ScaleBox/!svn/ver/1/src/xml/FileXML.h
+END
+NodeDOM.cc
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ScaleBox/!svn/ver/1/src/xml/NodeDOM.cc
+END
+NodeDOM.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ScaleBox/!svn/ver/1/src/xml/NodeDOM.h
+END
+NodeElem.cc
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ScaleBox/!svn/ver/1/src/xml/NodeElem.cc
+END
