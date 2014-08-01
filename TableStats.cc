@@ -18,7 +18,7 @@ TableStats::TableStats ():Stats()
 	m_fTime = 0.0;
 	int		j;
 
-	m_pnStats = new int [STAT_FIELDS_SIZE];
+	m_pnStats = new double [STAT_FIELDS_SIZE];
 	m_pbyType = new char   [STAT_FIELDS_SIZE];
 	m_nSize = STAT_FIELDS_SIZE;
 
@@ -53,6 +53,9 @@ void	TableStats::Get_Title	(int nStat, char * szTitle)
 		break;
 	case BYTES_PROCESSED:
 		sprintf(szTitle, "Bytes_Processed");
+		break;
+	case PACKETS_PROCESSED:
+		sprintf(szTitle, "Packets_Processed");
 		break;
 	}
 

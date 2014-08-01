@@ -150,6 +150,7 @@ int CacheTable::matchAt(uint* fP, int fPlen, char payload[1600], int offset) {
 			stats.Add_Stat(TableStats::BYTES_SAVED, lastMatch+1 - offset);
 		}
 	}
+	// There was a hit, record stats
 	if(lastMatch > -1) {
 		timeval tp;				// current time
 		gettimeofday(&tp, 0);
@@ -157,7 +158,7 @@ int CacheTable::matchAt(uint* fP, int fPlen, char payload[1600], int offset) {
 		entry.stats->Add_Stat(EntryStats::HIT, 1);
 		stats.Add_Stat(TableStats::TOTAL_HITS, 1);
 	}
-	else if(entry.timeCreated.tv_sec != 0)
+	else if(entry.timeCreated.tv_sec != 0) // there was a miss, and there's an entry to record it in
 		entry.stats->Add_Stat(EntryStats::MISS, 1);
 
 	// If there was a sufficiently big match and we're logging

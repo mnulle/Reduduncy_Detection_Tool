@@ -14,6 +14,9 @@ void printTCPpayload(char payload[1600]) {
 
 // Prints len characters of the string
 void printTCPpayload(char payload[1600], int len) {
+	const int spaceCount = 8;
+	const int lineCount = 40;
+
 	// Intro
 	printf("Payload:\n");
 	// Counts up how many bytes read for spacing
@@ -24,10 +27,10 @@ void printTCPpayload(char payload[1600], int len) {
 
 		// Every eigth character, put a space in
 		formatcount++;
-		if(formatcount % 8 == 0)
+		if(formatcount % spaceCount == 0)
 			printf("  ");
 		// Every five groups of 8, put a newline in
-		if(formatcount == 40) {
+		if(formatcount == lineCount) {
 			formatcount = 0;
 			printf("\n");
 		}
