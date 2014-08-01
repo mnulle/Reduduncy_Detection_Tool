@@ -113,7 +113,7 @@ void	Stats::Allocate (int nSize)
 {
 	int		j;
 
-	m_pnStats = new double [nSize];
+	m_pnStats = new int [nSize];
 	m_pbyType = new char   [nSize];
 	m_nSize = nSize;
 

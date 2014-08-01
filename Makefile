@@ -49,3 +49,8 @@ CacheTable.o: CacheTable.cpp
 
 clean:
 	rm *.o cache-test analyse-file *~
+
+tidy:
+	rm *.txt *.log
+
+scrub: clean tidy

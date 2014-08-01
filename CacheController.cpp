@@ -14,6 +14,7 @@ CacheController::CacheController():
 	pgrab((char*)"pcaps/short.cap") { // construct packet grabber
 	bytesSavedTotal = 0; // init to 0 bytes saved
 	expiryTime = 120; // default to 2 minute expiration
+	recordFlag = 0;
 
 	writeToLog((char*)"Reading from pcaps/short.cap", (char*)"file"); // write to log
 }
@@ -23,6 +24,7 @@ CacheController::CacheController(uint* P):
 	pgrab((char*)"pcaps/short.cap") { // construct packet grabber
 	bytesSavedTotal = 0; // init to 0 bytes saved
 	expiryTime = 120; // default to 2 minute expiration
+	recordFlag = 0;
 
 	writeToLog((char*)"Reading from pcaps/short.cap", (char*)"file"); // write to log
 }
@@ -32,6 +34,7 @@ CacheController::CacheController(char *packetfile):
 	pgrab(packetfile) { // construct packet grabber
 	bytesSavedTotal = 0; // init to 0 bytes saved
 	expiryTime = 120; // default to 2 minute expiration
+	recordFlag = 0;
 
 	char message[1000]; // write to log
 	sprintf(message, "Reading from %s", packetfile);
@@ -43,6 +46,7 @@ CacheController::CacheController(char *packetfile, uint* P):
 	pgrab(packetfile) { // construct packet grabber
 	bytesSavedTotal = 0; // init to 0 bytes saved
 	expiryTime = 120; // default to 2 minute expiration
+	recordFlag = 0;
 
 	char message[1000]; // write to log
 	sprintf(message, "Reading from %s", packetfile);
@@ -66,6 +70,12 @@ int CacheController::processAllPacketsFromFile() {
 		count++;
 		if(strcmp(pgrab.getCurrentPayload(), "")) // process if it's not empty
 			processPacket(pgrab.getCurrentPayload(), pgrab.getPayloadCount());
+		if(pgrab.getPayloadCount() % 50 == 0 && !recordFlag) {
+			cache.writeStatsToLog((char*)"stats.log");
+			recordFlag = 1;
+		}
+		else if (pgrab.getPayloadCount() % 50 != 0)
+			recordFlag = 0;
 	}
 	// return number of packets processed
 	return count;
@@ -161,6 +171,7 @@ int CacheController::processPacket(char* payload, int count) {
 	}
 	bytesSavedTotal += bytesSaved; // add bytes saved from this packet to total
 	cache.addStat(TableStats::BYTES_PROCESSED, payloadlen);
+	cache.addStat(TableStats::PACKETS_PROCESSED, 1);
 	return bytesSaved;
 }
 

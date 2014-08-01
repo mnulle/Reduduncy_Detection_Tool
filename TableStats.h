@@ -41,6 +41,7 @@ class TableStats: public Stats
 			TOTAL_HITS,
 			BYTES_SAVED,
 			BYTES_PROCESSED,
+			PACKETS_PROCESSED,
 
 			STAT_FIELDS_SIZE
 		};

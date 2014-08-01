@@ -158,8 +158,17 @@ public:
 	 * Write the entry in csv form to the log/
 	 * args:
 	 *   CacheEntry entry: the entry to write to the log
+	 *   char *filename: if NULL, uses the log for the class. Otherwise opens the filename given
 	 */
 	void writeEntryToLog(CacheEntry entry, char *filename=NULL);
+
+	/**
+	 * Write the stats in csv form to the log/
+	 * args:
+	 *   char *filename: if NULL, uses the log for the class. Otherwise opens the filename given
+	 */
+	void writeStatsToLog(char *filename=NULL);
+
 
 	/**
 	 * Write all the entries in the cache to the log file

@@ -145,8 +145,10 @@ int CacheTable::matchAt(uint* fP, int fPlen, char payload[1600], int offset) {
 				break;
 			}
 		}
-		entry.stats->Add_Stat(EntryStats::BYTES_SAVED, lastMatch+1 - offset);
-		stats.Add_Stat(TableStats::BYTES_SAVED, lastMatch+1 - offset);
+		if(lastMatch != -1) {
+			entry.stats->Add_Stat(EntryStats::BYTES_SAVED, lastMatch+1 - offset);
+			stats.Add_Stat(TableStats::BYTES_SAVED, lastMatch+1 - offset);
+		}
 	}
 	if(lastMatch > -1) {
 		timeval tp;				// current time
@@ -273,6 +275,31 @@ void CacheTable::writeAllEntriesToLog(int final) {
 			if(final) writeEntryToLog(*it, (char*) "cache-final-state-log.txt");
 		}
 	}
+}
+
+void CacheTable::writeStatsToLog(char* filename) {
+	std::ofstream *logger;
+	int i;
+
+	if(filename != NULL) {
+		logger = new std::ofstream();
+		logger->open(filename, std::ios::out | std::ios::app);
+	} else {
+		logger = &logfile;
+	}
+
+	// get the current time
+	timeval tp;
+	gettimeofday(&tp, 0);
+	*logger << std::setfill('0') << std::setw(10) << tp.tv_sec << "." << std::setw(6) << tp.tv_usec << ":\t";
+
+	for(i = 0; i < TableStats::STAT_FIELDS_SIZE - 1; i++) {
+		*logger << stats.Get_Stat(i) << ",";
+	}
+	*logger << stats.Get_Stat(i) << "\n";
+
+	if(filename != NULL)
+		delete logger;
 }
 
 void CacheTable::writeEntryToLog(CacheEntry entry, char* filename) {

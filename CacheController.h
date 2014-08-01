@@ -57,6 +57,9 @@ private:
 	uint bytesSavedTotal;
 	// amount of time until entries can be replaced
 	uint expiryTime;
+
+	// Flag used for logging
+	int recordFlag;
 };
 
 #endif
